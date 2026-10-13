@@ -13,16 +13,16 @@ public class MyProject {
     	int [][] triangle = new int [11] [11];
     	int size = triangle.length;
     	
-    	//Create the loop that makes the triangle and its letters based on specific conditions
+    	//Create the loop that makes the triangle and its numbers based on specific conditions
     	for (int i = 0; i < size; i++) {
     		for (int j = 0; j < size; j++) {
-    			//Make sure that if the letter is in the top row and not at the beginning,
-    			//Display a zero
+    			//Make sure that if the number is in the top row and not at the beginning,
+    			//a zero is displayed
     			if ((i == 0) && (j != 0)){
     				System.out.print("0" + " ");
     			}
     			
-    			//Make sure that if the number is at far left, it is a 1
+    			//Make sure that if the number is at the far left, it is a 1
     			if (j == 0) {
     				triangle [i][j] = 1;
     				System.out.format(" " + triangle[i][j] + " ");
