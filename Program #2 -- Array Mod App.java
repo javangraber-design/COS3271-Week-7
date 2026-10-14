@@ -1,5 +1,5 @@
 //Programmer: Javan Graber
-//Date: 10/13/26
+//Date: 10/14/26
 
 package javanproject;
 
@@ -25,51 +25,64 @@ public class MyProject {
     	System.out.println("Please enter the numbers (as integers) that you want in the array below: ");
     	System.out.println();
     	
-    	//Use a loop to iterate however many times the user asked for
+    	//Use a loop to get each number
     	for (int i = 0; i < numbers; i++) {
     		System.out.println("Number #" + (i + 1));
 	    	arraySequence [i] = userinput.nextInt();
 	        userinput.nextLine(); 	
-
     	}
     	
+    	//Display the current array
     	System.out.println("Here is the current array: " + Arrays.toString(arraySequence));
     	System.out.println();
     	
     	//Immediately start the loop, but at the end ensure that the value is tested
     	do{
-    		//Display the current array and get the number that should be changed with its replacement
+    		//Ask the user if they want to edit the array
     		System.out.print("(Making sure) Would you like to edit any of the numbers? (1 for yes or 0 for no) --> ");
         	int edit = userinput.nextInt();
         	userinput.nextLine();
+        	
+        	System.out.println();
+        	
         	if (edit == 1) {
+        		//If they do want to edit, display the current array and get the number that should be changed and its replacement
 	    		System.out.println("Here is the current array: " + Arrays.toString(arraySequence));
+	    		System.out.println();
 	    		
 	    		System.out.print("Enter the number to change: ");
 	    		int changeNum = userinput.nextInt();
+	    		System.out.println();
 	    		
 	    		System.out.print("Enter the new number: ");
 	    		int newNum = userinput.nextInt();
+	    		System.out.println();
 	    		
+	    		//For clarity, contrast the initial sequence without any changes with the one that will follow
+	    		System.out.println("Here is the initial sequence before any change: " + Arrays.toString(arraySequence));
+	    		System.out.println();
+	    		
+	    		//Sort before the search to make sure the binary search has the right ascending order
+	    		Arrays.sort(arraySequence, 0, numbers);
 	    		
 	    		//Find the original number's place and replace it
 	    		int placement = Arrays.binarySearch(arraySequence, changeNum);
-	    		System.out.println(placement);
 	    		arraySequence [placement] = newNum;
 	    		
-	    		//Display the array and ask if they want to go again
-	    		System.out.println("Here is the current array: " + Arrays.toString(arraySequence));
+	    		//Display the array with the new number and in a sorted order, and ask if they want to go again
+	    		Arrays.sort(arraySequence, 0, numbers);
+	    		System.out.println("Here is the current array with " + changeNum + " swapped with " + newNum + " and sorted: " + Arrays.toString(arraySequence));
+	    		System.out.println();
 	    		
 	    		System.out.print("Again? (1 or 0) --> ");
 	        	cont = userinput.nextInt();
+	        	System.out.println();
         	}
+        //Test the condition
     	} while (cont == 1);
     	
-    	//Finally, sort it and display it
-    	System.out.println("Here is the final sequence sorted from smallest to largest: " + Arrays.toString(arraySequence));
-    	Arrays.sort(arraySequence, 0, numbers);
-    	
-    	System.out.println("Here is the final sequence sorted from smallest to largest: " + Arrays.toString(arraySequence));
+    	//Finally, display the final sentence
+    	System.out.println("Here is the final sequence: " + Arrays.toString(arraySequence));
     	}
     	
     }
