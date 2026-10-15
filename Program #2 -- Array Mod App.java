@@ -15,7 +15,7 @@ public class MyProject {
     	int numbers = userinput.nextInt();
     	
     	//Initialize the sequence with the required memory
-    	int arraySequence [];
+    	int [] arraySequence;
     	arraySequence = new int [numbers];
     	
     	//Initialize the cont variable as false (or 0)
