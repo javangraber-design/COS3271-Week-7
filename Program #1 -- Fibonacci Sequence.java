@@ -15,8 +15,7 @@ public class MyProject {
     	userinput.nextLine();
     	
     	//Because the Fibonacci sequence always must start with 0 and 1, initialize the first two values of the sequence with 0 and 1
-    	int [] fibSequence;
-    	fibSequence = new int[numbers];
+    	int [] fibSequence = new int[numbers];
     	fibSequence [0] = 0;
     	fibSequence [1] = 1;
     	
